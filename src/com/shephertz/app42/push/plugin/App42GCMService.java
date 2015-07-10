@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------------------------------
- *     Copyright © 2015 ShepHertz Technologies Pvt Ltd. All rights reserved.
+ *     Copyright Â© 2015 ShepHertz Technologies Pvt Ltd. All rights reserved.
  * -----------------------------------------------------------------------
  */
 package com.shephertz.app42.push.plugin;
@@ -70,6 +70,8 @@ public class App42GCMService extends IntentService {
 					.equals(messageType)) {
 				String message = intent.getExtras().getString("message");
 				App42Log.debug("Received: " + extras.toString());
+				if(message==null)
+				return;
 				App42Log.debug("Message: " + message);
 				if(!isActivtyActive)
 				generateNotification(message);
